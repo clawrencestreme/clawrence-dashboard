@@ -33,6 +33,44 @@ function formatPrice(price: number): string {
   return price.toFixed(4);
 }
 
+// SVG Icons
+const TeapotIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-3-3v6m-7 4h14a2 2 0 002-2V9a2 2 0 00-2-2h-3l-1.5-3h-5L7 7H4a2 2 0 00-2 2v8a2 2 0 002 2z" />
+    <circle cx="12" cy="12" r="8" strokeDasharray="2 2" />
+  </svg>
+);
+
+const TrophyIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 3.5h2.25A2.25 2.25 0 0121 5.75v1.5a2.25 2.25 0 01-2.25 2.25H18M7.5 3.5H5.25A2.25 2.25 0 003 5.75v1.5A2.25 2.25 0 005.25 9.5H6M7.5 3.5h9v6a4.5 4.5 0 11-9 0v-6zM12 13.5v3m-3 4.5h6" />
+  </svg>
+);
+
+const BoltIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+  </svg>
+);
+
+const ChartIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+  </svg>
+);
+
+const DropletIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a8.25 8.25 0 004.644-15.09A8.21 8.21 0 0012 4.5c-1.676 0-3.242.502-4.644 1.41A8.25 8.25 0 0012 21z" />
+  </svg>
+);
+
+const CastIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+  </svg>
+);
+
 export function HomeTab() {
   const [tokenData, setTokenData] = useState<TokenData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -101,17 +139,13 @@ export function HomeTab() {
   return (
     <div className="space-y-5 px-3 pb-6">
       {/* Hero Price Card */}
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 border border-zinc-700/50">
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl" />
-        
+      <div className="relative overflow-hidden rounded-2xl bg-zinc-900 border border-zinc-700/50">
         <div className="relative p-5">
           {/* Header */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-2xl shadow-lg shadow-amber-500/20">
-                🫖
+              <div className="w-12 h-12 rounded-xl bg-amber-500 flex items-center justify-center text-zinc-900 shadow-lg">
+                <TeapotIcon />
               </div>
               <div>
                 <h2 className="text-xl font-bold text-white tracking-tight">$CLAWRENCE</h2>
@@ -136,11 +170,11 @@ export function HomeTab() {
 
           {/* Stats Grid */}
           <div className="grid grid-cols-2 gap-3">
-            <div className="bg-black/30 backdrop-blur rounded-xl p-3 border border-zinc-700/50">
+            <div className="bg-zinc-800 rounded-xl p-3 border border-zinc-700/50">
               <p className="text-[10px] uppercase tracking-wider text-zinc-500 mb-1">Market Cap</p>
               <p className="text-lg font-bold text-white">{market ? formatNumber(market.marketCap) : '—'}</p>
             </div>
-            <div className="bg-black/30 backdrop-blur rounded-xl p-3 border border-zinc-700/50">
+            <div className="bg-zinc-800 rounded-xl p-3 border border-zinc-700/50">
               <p className="text-[10px] uppercase tracking-wider text-zinc-500 mb-1">24h Volume</p>
               <p className="text-lg font-bold text-white">{market ? formatNumber(market.volume24h) : '—'}</p>
             </div>
@@ -149,19 +183,19 @@ export function HomeTab() {
       </div>
 
       {/* Contest Card - Featured */}
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-amber-900/80 via-orange-900/60 to-amber-900/80 border border-amber-500/40">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMtNi42MjcgMC0xMiA1LjM3My0xMiAxMnM1LjM3MyAxMiAxMiAxMiAxMi01LjM3MyAxMi0xMi01LjM3My0xMi0xMi0xMnptMCAxOGMtMy4zMTQgMC02LTIuNjg2LTYtNnMyLjY4Ni02IDYtNiA2IDIuNjg2IDYgNi0yLjY4NiA2LTYgNnoiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjAyIi8+PC9nPjwvc3ZnPg==')] opacity-30" />
-        
+      <div className="relative overflow-hidden rounded-2xl bg-amber-900/80 border border-amber-500/40">
         <div className="relative p-5">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-2xl">🏆</span>
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-10 h-10 rounded-lg bg-amber-500 flex items-center justify-center text-zinc-900">
+              <TrophyIcon />
+            </div>
             <div>
               <h3 className="font-bold text-amber-100 text-lg">The Butler&apos;s Commission</h3>
               <p className="text-xs text-amber-200/70">Top holder wins a custom mini-app</p>
             </div>
           </div>
           
-          <div className="bg-black/40 backdrop-blur-sm rounded-xl p-4 border border-amber-500/20">
+          <div className="bg-black/40 rounded-xl p-4 border border-amber-500/20">
             <p className="text-[10px] uppercase tracking-widest text-amber-300/70 text-center mb-2">Time Remaining</p>
             <p className="text-3xl font-mono font-bold text-center text-amber-100 tracking-wider">
               {timeLeft}
@@ -172,9 +206,9 @@ export function HomeTab() {
 
       {/* Staking Card */}
       <div className="rounded-2xl bg-zinc-800/50 border border-zinc-700/50 p-4">
-        <div className="flex items-center gap-2 mb-3">
-          <div className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">
-            <span className="text-lg">⚡</span>
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-400">
+            <BoltIcon />
           </div>
           <div>
             <h3 className="font-semibold text-white text-sm">Staking Rewards</h3>
@@ -202,7 +236,9 @@ export function HomeTab() {
           rel="noopener noreferrer"
           className="group flex flex-col items-center gap-2 p-3 rounded-xl bg-zinc-800/50 border border-zinc-700/50 hover:border-emerald-500/50 hover:bg-emerald-500/5 transition-all"
         >
-          <span className="text-xl group-hover:scale-110 transition-transform">📊</span>
+          <span className="text-zinc-400 group-hover:text-emerald-400 group-hover:scale-110 transition-all">
+            <ChartIcon />
+          </span>
           <span className="text-[10px] font-medium text-zinc-400 group-hover:text-emerald-400 transition-colors">Chart</span>
         </a>
         <a 
@@ -211,7 +247,9 @@ export function HomeTab() {
           rel="noopener noreferrer"
           className="group flex flex-col items-center gap-2 p-3 rounded-xl bg-zinc-800/50 border border-zinc-700/50 hover:border-blue-500/50 hover:bg-blue-500/5 transition-all"
         >
-          <span className="text-xl group-hover:scale-110 transition-transform">💧</span>
+          <span className="text-zinc-400 group-hover:text-blue-400 group-hover:scale-110 transition-all">
+            <DropletIcon />
+          </span>
           <span className="text-[10px] font-medium text-zinc-400 group-hover:text-blue-400 transition-colors">Streme</span>
         </a>
         <a 
@@ -220,7 +258,9 @@ export function HomeTab() {
           rel="noopener noreferrer"
           className="group flex flex-col items-center gap-2 p-3 rounded-xl bg-zinc-800/50 border border-zinc-700/50 hover:border-purple-500/50 hover:bg-purple-500/5 transition-all"
         >
-          <span className="text-xl group-hover:scale-110 transition-transform">🟣</span>
+          <span className="text-zinc-400 group-hover:text-purple-400 group-hover:scale-110 transition-all">
+            <CastIcon />
+          </span>
           <span className="text-[10px] font-medium text-zinc-400 group-hover:text-purple-400 transition-colors">Farcaster</span>
         </a>
       </div>

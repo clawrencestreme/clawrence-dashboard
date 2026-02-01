@@ -17,7 +17,11 @@ export const APP_OG_IMAGE_URL: string = `${APP_URL}/api/opengraph-image`;
 export const APP_SPLASH_URL: string = `${APP_URL}/splash.png`;
 export const APP_SPLASH_BACKGROUND_COLOR: string = '#1a1a2e';
 
-export const APP_ACCOUNT_ASSOCIATION: AccountAssociation | undefined = undefined;
+export const APP_ACCOUNT_ASSOCIATION: AccountAssociation | undefined = {
+  header: "eyJmaWQiOjQ0NjY5NywidHlwZSI6ImF1dGgiLCJrZXkiOiIweDkwMTI1RjllNTE1NWY0OTY1QTI0MjlEOWE0YjQwMjgzMzQxRDVCYTIifQ",
+  payload: "eyJkb21haW4iOiJjbGF3cmVuY2UtZGFzaGJvYXJkLnZlcmNlbC5hcHAifQ",
+  signature: "dfE+clvg0gSEpGKI70MQPR0fK2mpmrJ6OBUJTwgCjDU5T+tmDOBtBBTuc8LZPjyOuG/yujICiG1asNnFndvgSBw="
+};
 
 // --- UI Configuration ---
 export const APP_BUTTON_TEXT: string = 'View Dashboard';
