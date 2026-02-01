@@ -19,10 +19,11 @@ interface TokenData {
   pool_address?: string;
 }
 
-interface StakingStats {
-  totalStaked: string;
-  poolShare: string;
-}
+// StakingStats interface reserved for future use
+// interface StakingStats {
+//   totalStaked: string;
+//   poolShare: string;
+// }
 
 function formatNumber(num: number): string {
   if (num >= 1_000_000) return `$${(num / 1_000_000).toFixed(2)}M`;
@@ -35,13 +36,13 @@ function formatPrice(price: number): string {
   return price.toFixed(6);
 }
 
+// Contest end time: Feb 3, 2026 08:00 UTC (constant)
+const CONTEST_END = new Date('2026-02-03T08:00:00Z');
+
 export function HomeTab() {
   const [tokenData, setTokenData] = useState<TokenData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
-  // Contest end time: Feb 3, 2026 08:00 UTC
-  const contestEnd = new Date('2026-02-03T08:00:00Z');
   const [timeLeft, setTimeLeft] = useState<string>('');
 
   useEffect(() => {
@@ -71,7 +72,7 @@ export function HomeTab() {
   useEffect(() => {
     function updateCountdown() {
       const now = new Date();
-      const diff = contestEnd.getTime() - now.getTime();
+      const diff = CONTEST_END.getTime() - now.getTime();
       
       if (diff <= 0) {
         setTimeLeft('Contest ended');
@@ -176,7 +177,7 @@ export function HomeTab() {
       <div className="bg-gradient-to-r from-amber-900/50 to-orange-900/50 rounded-xl p-4 border border-amber-500/30">
         <div className="flex items-center gap-2 mb-2">
           <span className="text-xl">🏆</span>
-          <h3 className="font-bold text-amber-200">The Butler's Commission</h3>
+          <h3 className="font-bold text-amber-200">The Butler&apos;s Commission</h3>
         </div>
         <p className="text-sm text-gray-300 mb-3">
           Holder with the most $CLAWRENCE when time runs out wins a custom mini-app build.
